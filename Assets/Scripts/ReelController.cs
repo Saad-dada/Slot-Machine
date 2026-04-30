@@ -10,12 +10,9 @@ public class ReelController : MonoBehaviour
     public List<Sprite> symbols;
 
     private int currentIndex;
-    private bool isSpinning = false;
 
     public IEnumerator Spin(float duration)
     {
-        isSpinning = true;
-
         float timer = 0f;
 
         while (timer < duration)
@@ -26,8 +23,6 @@ public class ReelController : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
             timer += 0.05f;
         }
-
-        isSpinning = false;
     }
 
     public int GetCurrentIndex()
