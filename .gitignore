@@ -1,0 +1,70 @@
+# =========================
+# Unity Generated Folders
+# =========================
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+
+# =========================
+# MemoryCaptures
+# =========================
+MemoryCaptures/
+
+# =========================
+# Asset meta files (KEEP THESE)
+# =========================
+!Assets/**/*.meta
+!ProjectSettings/**/*.meta
+
+# =========================
+# Visual Studio / Rider
+# =========================
+.vs/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# =========================
+# JetBrains Rider
+# =========================
+.idea/
+*.sln.iml
+
+# =========================
+# OS Generated Files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Build files (optional)
+# =========================
+# Uncomment if you DON'T want builds in repo
+# Build/
+# Builds/
+
+# =========================
+# Addressables (if used)
+# =========================
+ServerData/
+
+# =========================
+# Crash reports
+# =========================
+sysinfo.txt
