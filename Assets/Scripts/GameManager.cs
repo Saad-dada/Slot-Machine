@@ -9,6 +9,15 @@ public class GameManager : MonoBehaviour
     public int spinCost = 10;
     private int balance;
 
+    [Header("Spin Settings")]
+    [SerializeField] private float reel1Duration = 1.0f;
+    [SerializeField] private float reel2Duration = 1.2f;
+    [SerializeField] private float reel3Duration = 1.4f;
+
+    [SerializeField, Range(0.05f, 0.5f)] private float stopDelay = 0.2f;
+
+    [Header("Win Settings")]
+    [SerializeField, Range(0.1f, 0.8f)] private float winChance = 0.3f;
 
     [Header("Reels")]
     public ReelController reel1;
@@ -25,6 +34,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         balance = startingBalance;
+        resultText.text = "Press Spin";
         UpdateBalanceUI();
     }
 
@@ -46,12 +56,30 @@ public class GameManager : MonoBehaviour
         isSpinning = true;
         spinButton.SetActive(false);
 
+        // Deduct cost
+        balance -= spinCost;
+        UpdateBalanceUI();
+
         resultText.text = "Spinning...";
 
-        // Start reels one by one (better feel)
-        yield return StartCoroutine(reel1.Spin(1.0f));
-        yield return StartCoroutine(reel2.Spin(1.2f));
-        yield return StartCoroutine(reel3.Spin(1.4f));
+        bool isWin = Random.value < winChance;
+
+        int r1 = Random.Range(0, reel1.symbols.Count);
+        int r2 = isWin ? r1 : Random.Range(0, reel2.symbols.Count);
+        int r3 = isWin ? r1 : Random.Range(0, reel3.symbols.Count);
+
+        yield return StartCoroutine(reel1.Spin(reel1Duration));
+        reel1.SetFinalSymbol(r1);
+
+        yield return new WaitForSeconds(stopDelay);
+
+        yield return StartCoroutine(reel2.Spin(reel2Duration));
+        reel2.SetFinalSymbol(r2);
+
+        yield return new WaitForSeconds(stopDelay);
+
+        yield return StartCoroutine(reel3.Spin(reel3Duration));
+        reel3.SetFinalSymbol(r3);
 
         CheckWin();
 
@@ -85,7 +113,7 @@ public class GameManager : MonoBehaviour
         // Example mapping based on your symbol order
         switch (symbolIndex)
         {
-            case 0: return 100; // 7 (high value)
+            case 0: return 100; // 7
             case 1: return 50;  // Cherry
             case 2: return 30;  // Bell
             case 3: return 20;  // BAR
@@ -95,6 +123,6 @@ public class GameManager : MonoBehaviour
 
     private void UpdateBalanceUI()
     {
-        balanceText.text = "Coins: " + balance;
+        Debug.Log("Balance: " + balance);
     }
 }

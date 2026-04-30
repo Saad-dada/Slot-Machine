@@ -292,7 +292,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 552, y: 63}
+  m_AnchoredPosition: {x: 555, y: -17}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &456037672
@@ -403,12 +403,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   startingBalance: 100
   spinCost: 10
+  reel1Duration: 1
+  reel2Duration: 1.2
+  reel3Duration: 1.4
+  stopDelay: 0.2
+  winChance: 0.3
   reel1: {fileID: 1520309550}
   reel2: {fileID: 896271836}
   reel3: {fileID: 1039127298}
   resultText: {fileID: 1929269860}
   spinButton: {fileID: 1146345893}
-  balanceText: {fileID: 0}
+  balanceText: {fileID: 1853970934}
 --- !u!4 &492500089
 Transform:
   m_ObjectHideFlags: 0
@@ -735,6 +740,7 @@ MonoBehaviour:
   - {fileID: -5620835742497143143, guid: 597e36307fa612347b91109b740668c0, type: 3}
   - {fileID: -2391669244243282240, guid: 3b5459b510216f24ba61b58bfe0e50e6, type: 3}
   - {fileID: -4945717182177459964, guid: 68ff2d2ab9677384dadcefc19d2755a2, type: 3}
+  spinInterval: 0.03
 --- !u!1 &945460596
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,6 +973,7 @@ MonoBehaviour:
   - {fileID: -5620835742497143143, guid: 597e36307fa612347b91109b740668c0, type: 3}
   - {fileID: -2391669244243282240, guid: 3b5459b510216f24ba61b58bfe0e50e6, type: 3}
   - {fileID: -4945717182177459964, guid: 68ff2d2ab9677384dadcefc19d2755a2, type: 3}
+  spinInterval: 0.03
 --- !u!1 &1134803531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,6 +1566,7 @@ MonoBehaviour:
   - {fileID: -5620835742497143143, guid: 597e36307fa612347b91109b740668c0, type: 3}
   - {fileID: -2391669244243282240, guid: 3b5459b510216f24ba61b58bfe0e50e6, type: 3}
   - {fileID: -4945717182177459964, guid: 68ff2d2ab9677384dadcefc19d2755a2, type: 3}
+  spinInterval: 0.03
 --- !u!1 &1543924775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1748,7 +1756,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 26, y: 191}
+  m_AnchoredPosition: {x: 197, y: 417}
   m_SizeDelta: {x: 280, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1853970934
@@ -1771,7 +1779,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Balance: 100'
+  m_text: 'Coins: 100'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1837,7 +1845,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -126.142044, w: 0}
+  m_margin: {x: 0, y: 0, z: -40.57541, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
