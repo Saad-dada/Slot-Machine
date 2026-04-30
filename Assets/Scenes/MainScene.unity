@@ -371,6 +371,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456037672}
   m_CullTransparentMesh: 1
+--- !u!1 &492500087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 492500089}
+  - component: {fileID: 492500088}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &492500088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492500087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 135bd4506f768e547b49154f06b9550e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  reel1: {fileID: 1520309550}
+  reel2: {fileID: 896271836}
+  reel3: {fileID: 1039127298}
+  resultText: {fileID: 1929269860}
+  spinButton: {fileID: 1146345893}
+--- !u!4 &492500089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492500087}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &605387215
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,6 +647,7 @@ GameObject:
   - component: {fileID: 896271833}
   - component: {fileID: 896271835}
   - component: {fileID: 896271834}
+  - component: {fileID: 896271836}
   m_Layer: 5
   m_Name: Reel2
   m_TagString: Untagged
@@ -663,6 +713,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896271832}
   m_CullTransparentMesh: 1
+--- !u!114 &896271836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896271832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ecddbc9f50596741b4e6de1a22e2a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReelController
+  symbolImage: {fileID: 2003678984}
+  symbols:
+  - {fileID: 2193077994593488821, guid: 01e65c24fb45616458e8c326417b7114, type: 3}
+  - {fileID: -5620835742497143143, guid: 597e36307fa612347b91109b740668c0, type: 3}
+  - {fileID: -2391669244243282240, guid: 3b5459b510216f24ba61b58bfe0e50e6, type: 3}
+  - {fileID: -4945717182177459964, guid: 68ff2d2ab9677384dadcefc19d2755a2, type: 3}
 --- !u!1 &945460596
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,6 +879,7 @@ GameObject:
   - component: {fileID: 1039127295}
   - component: {fileID: 1039127297}
   - component: {fileID: 1039127296}
+  - component: {fileID: 1039127298}
   m_Layer: 5
   m_Name: Reel3
   m_TagString: Untagged
@@ -876,6 +945,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039127294}
   m_CullTransparentMesh: 1
+--- !u!114 &1039127298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039127294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ecddbc9f50596741b4e6de1a22e2a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReelController
+  symbolImage: {fileID: 1830197623}
+  symbols:
+  - {fileID: 2193077994593488821, guid: 01e65c24fb45616458e8c326417b7114, type: 3}
+  - {fileID: -5620835742497143143, guid: 597e36307fa612347b91109b740668c0, type: 3}
+  - {fileID: -2391669244243282240, guid: 3b5459b510216f24ba61b58bfe0e50e6, type: 3}
+  - {fileID: -4945717182177459964, guid: 68ff2d2ab9677384dadcefc19d2755a2, type: 3}
 --- !u!1 &1146345893
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,7 +1045,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1146345896}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 492500088}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Spin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1146345896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1297,6 +1396,7 @@ GameObject:
   - component: {fileID: 1520309547}
   - component: {fileID: 1520309549}
   - component: {fileID: 1520309548}
+  - component: {fileID: 1520309550}
   m_Layer: 5
   m_Name: Reel1
   m_TagString: Untagged
@@ -1362,6 +1462,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520309546}
   m_CullTransparentMesh: 1
+--- !u!114 &1520309550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520309546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ecddbc9f50596741b4e6de1a22e2a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReelController
+  symbolImage: {fileID: 1638777700}
+  symbols:
+  - {fileID: 2193077994593488821, guid: 01e65c24fb45616458e8c326417b7114, type: 3}
+  - {fileID: -5620835742497143143, guid: 597e36307fa612347b91109b740668c0, type: 3}
+  - {fileID: -2391669244243282240, guid: 3b5459b510216f24ba61b58bfe0e50e6, type: 3}
+  - {fileID: -4945717182177459964, guid: 68ff2d2ab9677384dadcefc19d2755a2, type: 3}
 --- !u!1 &1543924775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,3 +2008,4 @@ SceneRoots:
   - {fileID: 945460599}
   - {fileID: 775770127}
   - {fileID: 2045839626}
+  - {fileID: 492500089}
