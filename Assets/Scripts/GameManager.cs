@@ -4,6 +4,12 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Economy")]
+    public int startingBalance = 100;
+    public int spinCost = 10;
+    private int balance;
+
+
     [Header("Reels")]
     public ReelController reel1;
     public ReelController reel2;
@@ -12,12 +18,25 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     public TMP_Text resultText;
     public GameObject spinButton;
+    public TMPro.TMP_Text balanceText;
 
     private bool isSpinning = false;
+
+    void Start()
+    {
+        balance = startingBalance;
+        UpdateBalanceUI();
+    }
 
     public void Spin()
     {
         if (isSpinning) return;
+
+        if (balance < spinCost)
+        {
+            resultText.text = "Not enough coins!";
+            return;
+        }
 
         StartCoroutine(SpinRoutine());
     }
@@ -48,11 +67,34 @@ public class GameManager : MonoBehaviour
 
         if (r1 == r2 && r2 == r3)
         {
-            resultText.text = "YOU WIN!";
+            int reward = GetReward(r1);
+            balance += reward;
+
+            resultText.text = "YOU WIN! +" + reward;
         }
         else
         {
             resultText.text = "TRY AGAIN";
         }
+
+        UpdateBalanceUI();
+    }
+
+    private int GetReward(int symbolIndex)
+    {
+        // Example mapping based on your symbol order
+        switch (symbolIndex)
+        {
+            case 0: return 100; // 7 (high value)
+            case 1: return 50;  // Cherry
+            case 2: return 30;  // Bell
+            case 3: return 20;  // BAR
+            default: return 10;
+        }
+    }
+
+    private void UpdateBalanceUI()
+    {
+        balanceText.text = "Coins: " + balance;
     }
 }
