@@ -86,12 +86,42 @@ Assets/
 
 ---
 
-## 🌐 WebGL Build
+## ▶️ How to Run
 
-To run the game:
+### 🔹 Option 1: Play via WebGL (Recommended)
 
-1. Open the `/Build/WebGL` folder
-2. Run the `index.html` file in a browser
+1. Navigate to:
+
+   ```
+   Build/WebGL/
+   ```
+2. Open `index.html` in a browser
+
+> ⚠️ If it doesn’t run due to browser restrictions, use a local server:
+
+```bash
+python -m http.server
+```
+
+Then open:
+
+```
+http://localhost:8000
+```
+
+---
+
+### 🔹 Option 2: Run in Unity Editor
+
+1. Open project in Unity (version 6+ recommended)
+2. Open `MainScene` from `Assets/Scenes/`
+3. Click **Play**
+
+---
+
+## 🌐 Play Online (Itch.io)
+
+👉 **Play the game [here](https://saadnotsad.itch.io/slot-machine)**
 
 ---
 
@@ -108,31 +138,8 @@ To run the game:
 
 ---
 
-## 🚀 Possible Improvements
-
-* Add multi-line win conditions
-* Add bonus symbols (wild/scatter)
-* Add background music + mute toggle
-* Improve reel animation using sprite scrolling system
-* Add persistent save system
-
----
-
 ## 📦 Requirements
 
 * Unity 6+ (Recommended)
 * Supports WebGL build
 
-
----
-
-## ✅ Notes
-
-This project was developed as part of a **Unity Game Development Assignment**, focusing on:
-
-* Clean architecture
-* Gameplay logic
-* UI/UX clarity
-* Code quality and maintainability
-
----
