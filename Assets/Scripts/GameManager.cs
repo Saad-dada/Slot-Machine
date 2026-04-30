@@ -98,6 +98,8 @@ public class GameManager : MonoBehaviour
             int reward = GetReward(r1);
             balance += reward;
 
+            StartCoroutine(WinEffect());
+
             resultText.text = "YOU WIN! +" + reward;
         }
         else
@@ -118,6 +120,19 @@ public class GameManager : MonoBehaviour
             case 2: return 30;  // Bell
             case 3: return 20;  // BAR
             default: return 10;
+        }
+    }
+    private IEnumerator WinEffect()
+    {
+        Vector3 originalScale = resultText.transform.localScale;
+
+        for (int i = 0; i < 2; i++)
+        {
+            resultText.transform.localScale = originalScale * 1.2f;
+            yield return new WaitForSeconds(0.1f);
+
+            resultText.transform.localScale = originalScale;
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
