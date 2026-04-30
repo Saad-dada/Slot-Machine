@@ -9,7 +9,7 @@ public class LeverController : MonoBehaviour
     [SerializeField] private GameObject leverInactive;
 
     [Header("Timing")]
-    [SerializeField] private float pressDuration = 0.15f;
+    [SerializeField] private float pressDuration = 0.3f;
 
     private bool isPressed = false;
 
@@ -27,6 +27,7 @@ public class LeverController : MonoBehaviour
     private IEnumerator HandlePressRoutine()
     {
         isPressed = true;
+        AudioManager.Instance.Play(AudioManager.Instance.leverPull, 0.8f);
 
         leverInactive.SetActive(true);
         leverActive.SetActive(false);

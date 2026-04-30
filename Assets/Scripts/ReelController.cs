@@ -10,6 +10,8 @@ public class ReelController : MonoBehaviour
     public List<Sprite> symbols;
     public float spinInterval = 0.03f;
 
+    [SerializeField] private float tickSoundInterval = 0.1f;
+    private float tickTimer = 0f;
     private int currentIndex;
 
     public IEnumerator Spin(float duration)
@@ -20,6 +22,14 @@ public class ReelController : MonoBehaviour
         {
             currentIndex = Random.Range(0, symbols.Count);
             symbolImage.sprite = symbols[currentIndex];
+
+            tickTimer += spinInterval;
+
+            if (tickTimer >= tickSoundInterval)
+            {
+                AudioManager.Instance.Play(AudioManager.Instance.reelTick, 0.3f);
+                tickTimer = 0f;
+            }
 
             yield return new WaitForSeconds(spinInterval);
             timer += spinInterval;
@@ -34,6 +44,7 @@ public class ReelController : MonoBehaviour
     public void SetFinalSymbol(int index)
     {
         currentIndex = index;
+        AudioManager.Instance.Play(AudioManager.Instance.reelStop, 0.6f);
         symbolImage.sprite = symbols[index];
     }
 }

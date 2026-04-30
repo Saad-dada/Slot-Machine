@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour
             balance += reward;
 
             StartCoroutine(WinEffect());
+            AudioManager.Instance.Play(AudioManager.Instance.winSound, 1f);
 
             resultText.text = "YOU WIN! +" + reward;
         }
