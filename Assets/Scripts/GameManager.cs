@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator SpinRoutine()
     {
         isSpinning = true;
-        spinButton.SetActive(false);
+        spinButton.GetComponent<UnityEngine.UI.Button>().interactable = false;
 
         // Deduct cost
         balance -= spinCost;
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
 
         CheckWin();
 
-        spinButton.SetActive(true);
+        spinButton.GetComponent<UnityEngine.UI.Button>().interactable = true;
         isSpinning = false;
     }
 
@@ -123,6 +123,6 @@ public class GameManager : MonoBehaviour
 
     private void UpdateBalanceUI()
     {
-        Debug.Log("Balance: " + balance);
+        balanceText.text = "Coins: " + balance;
     }
 }
