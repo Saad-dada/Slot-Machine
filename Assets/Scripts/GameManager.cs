@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField, Range(0.1f, 0.8f)] private float winChance = 0.3f;
 
     [Header("Reels")]
+    [SerializeField] private LeverController lever;
     public ReelController reel1;
     public ReelController reel2;
     public ReelController reel3;
@@ -41,6 +42,9 @@ public class GameManager : MonoBehaviour
     public void Spin()
     {
         if (isSpinning) return;
+
+        if (lever != null)
+            lever.PlayLeverAnimation();
 
         if (balance < spinCost)
         {
